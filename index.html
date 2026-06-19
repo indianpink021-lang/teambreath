@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘의 한숨</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="오늘의 한숨 앱">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">powered by 팀숨</p>
+          <h1>오늘의 한숨</h1>
+        </div>
+        <div class="today-pill" aria-label="오늘 총 한숨 횟수">
+          <span id="sighCount">0</span>회
+        </div>
+      </section>
+
+      <section class="sigh-stage" aria-label="한숨 측정">
+        <canvas id="breathCanvas" width="720" height="720" aria-hidden="true"></canvas>
+        <div class="hold-readout">
+          <span id="holdLabel">하...</span>
+          <strong id="holdSeconds">0.0초</strong>
+        </div>
+        <button id="sighButton" class="sigh-button" type="button" aria-label="길게 눌러 한숨 쉬기">
+          길게 눌러 한숨 쉬기
+        </button>
+        <p class="hint">누르고 있는 만큼 오늘의 한숨 길이가 기록됩니다.</p>
+      </section>
+
+      <section class="metrics" aria-label="오늘의 한숨 통계">
+        <div>
+          <span>총 배출 시간</span>
+          <strong id="totalTime">0.0초</strong>
+        </div>
+        <div>
+          <span>평균 한숨</span>
+          <strong id="averageTime">0.0초</strong>
+        </div>
+        <div>
+          <span>전국 현황</span>
+          <strong><span id="globalCount">12,840</span>회</strong>
+        </div>
+      </section>
+
+      <section class="solution" aria-label="오늘의 처방">
+        <div class="section-heading">
+          <h2>오늘의 처방</h2>
+          <span id="sighType">대기 중</span>
+        </div>
+        <p id="solutionText">첫 한숨을 기록하면 오늘의 상태를 분석해드립니다.</p>
+      </section>
+
+      <section class="feed" aria-label="실시간 한숨 현황">
+        <div class="section-heading">
+          <h2>실시간 한숨 현황</h2>
+          <span id="liveNow">37명 한숨 중</span>
+        </div>
+        <ul id="feedList"></ul>
+      </section>
+
+      <section class="silent-chat" aria-label="무언 채팅">
+        <div class="section-heading">
+          <h2>무언 채팅</h2>
+          <span id="chatStatus">말 없이 공감 중</span>
+        </div>
+        <div class="chat-actions" id="chatActions">
+          <button type="button" data-bubble="하...">하...</button>
+          <button type="button" data-bubble="음...">음...</button>
+          <button type="button" data-bubble="아...">아...</button>
+          <button type="button" data-bubble="일단 닫기">일단 닫기</button>
+        </div>
+      </section>
+
+      <section class="share-panel" aria-label="공유 카드">
+        <div class="share-card" id="shareCard">
+          <p class="card-kicker">오늘의 한숨 리포트</p>
+          <h3 id="cardType">아직 한숨 전</h3>
+          <p class="card-main">
+            오늘 나는 총 <strong id="cardTotal">0.0초</strong> 동안 한숨을 배출했습니다.
+          </p>
+          <div class="card-grid">
+            <span>횟수 <b id="cardCount">0회</b></span>
+            <span>평균 <b id="cardAverage">0.0초</b></span>
+          </div>
+          <p id="cardSolution">측정 버튼을 길게 눌러 첫 리포트를 만들어보세요.</p>
+        </div>
+        <div class="actions">
+          <button id="downloadCard" type="button">이미지 저장</button>
+          <button id="shareResult" type="button">공유하기</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
