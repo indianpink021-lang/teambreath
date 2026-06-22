@@ -174,19 +174,30 @@ h2 {
 .metrics {
   margin: 16px 0;
   align-items: stretch;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .metrics div {
+  position: relative;
   flex: 1;
   min-width: 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
   padding: 14px 0;
 }
 
 .metrics div + div {
-  padding-left: 12px;
-  border-left: 1px solid var(--line);
+  padding-left: 24px;
+}
+
+.metrics div + div::before {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+  width: 1px;
+  background: var(--line);
+  content: "";
 }
 
 .metrics strong {
@@ -418,8 +429,14 @@ h2 {
 
   .metrics div + div {
     padding-left: 0;
-    border-left: 0;
-    border-top: 0;
+  }
+
+  .metrics div + div::before {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
   }
 
   .chat-actions {
